@@ -1,0 +1,274 @@
+.body{
+    background-color: #370617;
+}
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #333;
+    height: 100vh;
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+.animation-heading {
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-transform: uppercase;
+    font-size: 70px; /* You can adjust this depending on the screen size */
+    display: flex;
+    letter-spacing: 18px;
+    justify-content: center;
+    align-items: center;
+    height: 500px; /* Ensures that it takes up the full viewport height if you want vertical centering */
+    margin: 0;   transition: 5s;
+    transform: translateY(10px);
+    opacity: 0;
+    animation: slideIn 6s forwards;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(0);
+        opacity: 1;
+    }
+}
+
+/* Styling for all balls */
+.ball {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: white;  /* Blue */
+    border-radius: 50%;
+    animation-duration: 6s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite; /* Loop animation */
+}
+
+/* Keyframes for Ball 1: Diagonal from top-left to bottom-right */
+@keyframes moveDiagonal1 {
+    0% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(100vw, 100vh);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* Keyframes for Ball 2: Move vertically */
+@keyframes moveVertical {
+    0% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(0, 100vh);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* Keyframes for Ball 3: Move horizontally */
+@keyframes moveHorizontal {
+    0% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(100vw, 0);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* Keyframes for Ball 4: Circular motion */
+@keyframes moveCircular {
+    0% {
+        transform: translate(50vw, 50vh) rotate(0deg);
+    }
+    25% {
+        transform: translate(70vw, 50vh) rotate(90deg);
+    }
+    50% {
+        transform: translate(50vw, 70vh) rotate(180deg);
+    }
+    75% {
+        transform: translate(30vw, 50vh) rotate(270deg);
+    }
+    100% {
+        transform: translate(50vw, 50vh) rotate(360deg);
+    }
+}
+
+/* Keyframes for Ball 5: Move diagonally (bottom-left to top-right) */
+@keyframes moveDiagonal2 {
+    0% {
+        transform: translate(0, 100vh);
+    }
+    50% {
+        transform: translate(100vw, 0);
+    }
+    100% {
+        transform: translate(0, 100vh);
+    }
+}
+
+/* Keyframes for Ball 6: Bounce up and down */
+@keyframes moveBounce {
+    0% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(0, -100px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* Keyframes for Ball 7: Move in a zigzag pattern */
+@keyframes moveZigzag {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(25vw, 25vh);
+    }
+    50% {
+        transform: translate(50vw, 0);
+    }
+    75% {
+        transform: translate(75vw, 25vh);
+    }
+    100% {
+        transform: translate(100vw, 0);
+    }
+}
+
+/* Keyframes for Ball 8: Circular motion, but larger path */
+@keyframes moveCircular2 {
+    0% {
+        transform: translate(50vw, 50vh) rotate(0deg);
+    }
+    33% {
+        transform: translate(90vw, 50vh) rotate(120deg);
+    }
+    66% {
+        transform: translate(50vw, 90vh) rotate(240deg);
+    }
+    100% {
+        transform: translate(50vw, 50vh) rotate(360deg);
+    }
+}
+
+/* Keyframes for Ball 9: Move from left to right with up/down bounce */
+@keyframes moveLeftRightBounce {
+    0% {
+        transform: translate(-100vw, 50vh);
+    }
+    50% {
+        transform: translate(100vw, 50vh);
+    }
+    100% {
+        transform: translate(-100vw, 50vh);
+    }
+}
+
+/* Keyframes for Ball 10: Move in a square path */
+@keyframes moveSquare {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(100vw, 0);
+    }
+    50% {
+        transform: translate(100vw, 100vh);
+    }
+    75% {
+        transform: translate(0, 100vh);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+
+/* Apply the animations to the balls */
+.ball1 { animation-name: moveDiagonal1; }
+.ball2 { animation-name: moveVertical; }
+.ball3 { animation-name: moveHorizontal; }
+.ball4 { animation-name: moveCircular; }
+.ball5 { animation-name: moveDiagonal2; }
+.ball6 { animation-name: moveBounce; }
+.ball7 { animation-name: moveZigzag; }
+.ball8 { animation-name: moveCircular2; }
+.ball9 { animation-name: moveLeftRightBounce; }
+.ball10 { animation-name: moveSquare; }
+
+.details {
+    height: 10px;
+    width: 90%;
+    display: flex;
+    flex-direction: column; /* Add this to stack content vertically */
+    justify-content: center; /* Centers content vertically */
+    align-items: center; /* Centers content horizontally */
+    color: white;
+    text-transform: uppercase;
+    font-size: 20px;
+    margin: 0 auto;  
+    transform: translateY(-10px);
+    opacity: 0;
+    animation: slideIn 6s forwards;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(0);
+        opacity: 1;
+    }
+}
+
+.details p {
+    font-size: 20px;
+    margin: 10px 0; /* Adds spacing between multiple <p> elements */
+    text-transform: uppercase; /* Inherit uppercase text-transform */
+    color: inherit; /* Inherits color from parent .details */
+}
+
+.details a{
+    text-decoration: none;
+    columns: white;
+    background-color: black;
+    width: 100px;
+    height: 50px;
+
+}
+
+a{
+    text-decoration: none;
+    columns: white;
+    background-color: black;
+    width: 100px;
+    height: 50px;
+    padding-left: 20px;
+    border-radius: 20px;
+
+}
+
+
